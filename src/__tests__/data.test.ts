@@ -9,7 +9,7 @@ import {
   projects,
   certifications,
   competitive,
-} from "./data";
+} from "../data";
 
 describe("data integrity", () => {
   it("exposes a complete profile with absolute links", () => {

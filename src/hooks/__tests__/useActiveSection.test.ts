@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { act, renderHook } from "@testing-library/react";
-import { useActiveSection } from "./useActiveSection";
+import { useActiveSection } from "../useActiveSection";
 import {
   mockIntersectionObserver,
   removeIntersectionObserver,
-} from "./test/helpers";
+} from "../../test/helpers";
 
 function addSections(ids: string[]) {
   ids.forEach((id) => {

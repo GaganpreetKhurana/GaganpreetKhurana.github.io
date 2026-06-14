@@ -22,13 +22,15 @@ export function useTypewriter(
   holdMs = 1400,
 ): string {
   const [text, setText] = useState(phrases[0] ?? "");
-  // Depend on the phrases' *content* (joined key), not the array reference, so
+  // Depend on the phrases' *content* (JSON key), not the array reference, so
   // passing a fresh array literal with the same content won't restart the
-  // animation. The list is captured fresh each time the key changes.
-  const phrasesKey = phrases.join("|");
+  // animation. JSON (vs a delimiter join) handles phrases containing any char.
+  const phrasesKey = JSON.stringify(phrases);
 
   useEffect(() => {
-    const list = phrasesKey.length > 0 ? phrasesKey.split("|") : [];
+    // Drop empty strings: an empty phrase would desync the type/delete cycle
+    // (char index starts at 0 and the delete branch never resets cleanly).
+    const list: string[] = (JSON.parse(phrasesKey) as string[]).filter(Boolean);
     // Static path: the initial useState value already holds phrases[0], so
     // there is nothing to animate and no synchronous setState is needed.
     if (list.length <= 1 || prefersReducedMotion()) {

@@ -4,7 +4,7 @@ export const profile = {
   name: "Gaganpreet Khurana",
   tagline: "Full-Stack Software Engineer",
   blurb:
-    "SDE-II @ Amazon. I build reliable, large-scale systems end-to-end — from backend services to the UI on top — and I'm hands-on with Generative AI.",
+    "SDE-II at Amazon building reliable, large-scale systems end-to-end — backend, cloud, and the interfaces on top — now working hands-on with Generative AI.",
   location: "India",
   links: {
     github: "https://github.com/GaganpreetKhurana",
@@ -12,7 +12,7 @@ export const profile = {
     codechef: "https://www.codechef.com/users/darknight_1729",
     leetcode: "https://leetcode.com/u/Dark_Knight_1729/",
   },
-  // Drop a resume.pdf into public/ to activate this link.
+  // The resume PDF is built from this same data by scripts/generate-resume.ts.
   resumeUrl: "/resume.pdf",
 };
 
@@ -22,19 +22,19 @@ export const roles: string[] = [
   "Backend · Java",
   "Frontend · React",
   "Cloud · AWS",
-  "Building with GenAI",
+  "GenAI · LLMs",
 ];
 
 export const highlights: string[] = [
-  "SDE-II @ Amazon · Ex-Intern @ JPMorgan Chase",
+  "SDE-II @ Amazon · ex-JPMorgan Chase",
   "Full-stack: Java · TypeScript · React · AWS",
   "Generative AI — LLMs, MCP servers & AI agents",
   "Competitive programmer — 4★ on CodeChef",
 ];
 
 export const about: string[] = [
-  "I'm a full-stack engineer who enjoys taking features from a blank design doc all the way to production — backend services, the cloud infrastructure they run on, and the interfaces people actually use.",
-  "These days I work primarily in Java and TypeScript on large-scale, distributed systems, and I'm increasingly hands-on with Generative AI — integrating LLMs into products and building MCP servers and AI agents. Outside of work, I build small projects for fun and keep my problem-solving sharp with competitive programming.",
+  "I'm a full-stack engineer who enjoys taking features from a blank design doc all the way to production — backend services, the cloud infrastructure they run on, and the interfaces people use every day.",
+  "I work primarily in Java and TypeScript on large-scale distributed systems, and I build Generative-AI capabilities into products — integrating LLMs and shipping MCP servers and AI agents. Outside of work, I build small projects for fun and keep my problem-solving sharp with competitive programming.",
 ];
 
 export type Experience = {
@@ -50,17 +50,16 @@ export const experience: Experience[] = [
   {
     role: "Software Development Engineer II",
     org: "Amazon",
-    period: "2022 — Present",
+    period: "2022 - Present",
     detail:
       "Full-stack work on large, distributed subscription and purchase systems. Promoted from SDE I to SDE-II.",
     bullets: [
-      "Take features from idea to launch — design, build, test, ship — working with other teams to hit deadlines.",
-      "Write backend services in Java, set up cloud infrastructure with AWS (Lambda, DynamoDB, S3, SQS, CloudWatch) using AWS CDK, and build web UIs in React.",
-      "Build Alexa skills, including rich screen experiences with APL (Alexa Presentation Language).",
-      "Work with Generative AI — using LLMs (Amazon Bedrock), and building MCP servers and AI agents.",
-      "Build and improve marketing and campaign tools used across the team.",
-      "Run load and performance tests, speed up build/deploy pipelines, cut cloud costs, and write up post-incident reviews.",
-      "Handle on-call, keep services healthy, review code for security, and mentor and interview engineers.",
+      "Own features end-to-end — design, implementation, testing, and launch — coordinating across multiple partner teams to ship customer-facing capabilities on large, distributed systems.",
+      "Design and operate distributed backend services in Java on AWS (Lambda, DynamoDB, S3, SQS, CloudWatch), provisioned as code with AWS CDK, plus React web UIs.",
+      "Built Generative-AI capabilities — integrated LLMs (Amazon Bedrock) into products and authored MCP servers and AI agents adopted by the team.",
+      "Delivered customer-facing Alexa voice and multimodal (APL — Alexa Presentation Language) experiences, plus internal tooling adopted across the team.",
+      "Improved operational excellence: led load & performance testing, optimized CI/CD pipelines, reduced cloud cost, and authored post-incident reviews that prevented repeat issues.",
+      "Trusted as a security code reviewer; mentor new engineers and interview for engineering roles.",
     ],
     focusAreas: [
       "Subscriptions & Purchases",
@@ -74,23 +73,44 @@ export const experience: Experience[] = [
   {
     role: "Technology Analyst Intern",
     org: "JPMorgan Chase & Co.",
-    period: "2021",
-    detail: "Software engineering internship across the development lifecycle.",
+    period: "Jan 2021 - Jun 2021",
+    detail: "Built automation tooling that replaced repetitive manual work.",
+    bullets: [
+      "Built Python and VBA automation — web, email, and PDF scrapers plus MS Office tooling — that replaced repetitive manual workflows and freed analysts for higher-value analysis.",
+    ],
   },
   {
     role: "B.Tech, Computer Science & Engineering",
     org: "Punjab Engineering College (PEC), Chandigarh",
-    period: "2018 — 2022",
-    detail: "Executive Body Member, PEC ACM Student Chapter.",
+    period: "2018 - 2022",
+    detail: "CGPA 8.64/10. Executive Body Member, PEC ACM Student Chapter.",
   },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
   {
     group: "Languages",
-    items: ["Java", "TypeScript", "Python", "JavaScript", "Kotlin", "C++"],
+    items: [
+      "Java",
+      "TypeScript",
+      "Python",
+      "JavaScript",
+      "Kotlin",
+      "C++",
+      "VBA (Visual Basic for Applications)",
+    ],
   },
-  { group: "Frontend", items: ["React", "HTML", "CSS", "Node.js"] },
+  {
+    group: "Backend",
+    items: [
+      "REST APIs",
+      "Microservices",
+      "Distributed Systems",
+      "Node.js",
+      "System Design",
+    ],
+  },
+  { group: "Frontend", items: ["React", "HTML", "CSS"] },
   {
     group: "AWS & Cloud",
     items: [
@@ -107,7 +127,16 @@ export const skills: { group: string; items: string[] }[] = [
     group: "Generative AI",
     items: ["LLMs", "Amazon Bedrock", "MCP servers", "AI agents"],
   },
-  { group: "Alexa", items: ["Alexa Skills", "APL"] },
+  { group: "Alexa", items: ["Alexa Skills", "APL (Alexa Presentation Language)"] },
+  {
+    group: "Practices",
+    items: [
+      "Data Structures & Algorithms",
+      "CI/CD",
+      "Unit & Integration Testing",
+      "Agile",
+    ],
+  },
   { group: "Exploring", items: ["Go"] },
 ];
 
@@ -160,13 +189,13 @@ export const projects: Project[] = [
   },
 ];
 
+// Link to the full repo list, shown after the featured projects.
+export const moreProjectsUrl =
+  "https://github.com/GaganpreetKhurana?tab=repositories";
+
 export type Certification = { name: string; issuer: string };
 
 export const certifications: Certification[] = [
-  {
-    name: "Software Engineering Virtual Experience",
-    issuer: "JPMorgan Chase & Co. (Forage)",
-  },
   { name: "Data for Machine Learning", issuer: "Coursera" },
   {
     name: "Machine Learning Algorithms: Supervised Learning",
@@ -174,10 +203,6 @@ export const certifications: Certification[] = [
   },
   {
     name: "Open Source Software Development, Linux & Git (Specialization)",
-    issuer: "Coursera",
-  },
-  {
-    name: "Front-End Web UI Frameworks & Tools: Bootstrap 4",
     issuer: "Coursera",
   },
 ];
@@ -190,7 +215,15 @@ export const competitive = [
   },
   {
     platform: "LeetCode",
-    detail: "Active problem-solver",
+    detail: "350+ problems solved",
     href: profile.links.leetcode,
   },
+];
+
+// Competitive-programming / coding accomplishments (public). The CodeChef
+// rating is intentionally omitted here — it's already shown in the cards above.
+export const accomplishments: string[] = [
+  "Rank 2055 in Google Kick Start",
+  "Qualified for Facebook Hacker Cup Round 2",
+  "5th place — Ultimate Coding Showdown (PEC ACM Student Chapter)",
 ];

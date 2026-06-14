@@ -32,12 +32,18 @@ html {
   /* let form controls / scrollbars adapt to the active theme.
      data-theme is set on <html> itself, so target it directly. */
   color-scheme: dark;
+  /* Paint the theme background on <html> so the FULL viewport (including the
+     gutters beside the centered content column) always carries the theme
+     color — otherwise light mode shows a white column on a default backdrop. */
+  background-color: var(--color-bg);
+  color: var(--color-content);
 }
 html[data-theme="light"] {
   color-scheme: light;
 }
 
 body {
+  min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-content);
   -webkit-font-smoothing: antialiased;

@@ -1,7 +1,7 @@
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, renderHook } from "@testing-library/react";
-import { useTheme } from "./useTheme";
-import { mockMatchMedia } from "./test/helpers";
+import { useTheme } from "../useTheme";
+import { mockMatchMedia } from "../../test/helpers";
 
 const LIGHT_QUERY = "(prefers-color-scheme: light)";
 
@@ -67,6 +67,33 @@ describe("useTheme toggle", () => {
 
     expect(result.current.theme).toBe("dark");
     expect(localStorage.getItem("theme")).toBe("dark");
+  });
+});
+
+describe("useTheme storage failures", () => {
+  it("falls back to the OS preference when reading storage throws", () => {
+    const spy = vi.spyOn(localStorage, "getItem").mockImplementation(() => {
+      throw new DOMException("denied", "SecurityError");
+    });
+    mockMatchMedia({ [LIGHT_QUERY]: true }); // OS says light
+    const { result } = renderHook(() => useTheme());
+    expect(result.current.theme).toBe("light");
+    spy.mockRestore();
+  });
+
+  it("still toggles in memory when writing to storage throws", () => {
+    const spy = vi.spyOn(localStorage, "setItem").mockImplementation(() => {
+      throw new DOMException("quota", "QuotaExceededError");
+    });
+    mockMatchMedia({ [LIGHT_QUERY]: false }); // start dark
+    const { result } = renderHook(() => useTheme());
+
+    act(() => result.current.toggle());
+
+    // The write failed, but the theme flips in memory without throwing.
+    expect(result.current.theme).toBe("light");
+    expect(document.documentElement.getAttribute("data-theme")).toBe("light");
+    spy.mockRestore();
   });
 });
 

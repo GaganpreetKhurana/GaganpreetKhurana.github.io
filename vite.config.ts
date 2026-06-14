@@ -16,8 +16,14 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       include: ["src/**/*.{ts,tsx}"],
-      // Entry point and pure type/data modules carry no testable logic.
-      exclude: ["src/main.tsx", "src/test/**", "**/*.d.ts"],
+      // Entry point, test files/helpers, and type decls carry no testable logic.
+      exclude: [
+        "src/main.tsx",
+        "src/test/**",
+        "**/__tests__/**",
+        "**/*.test.{ts,tsx}",
+        "**/*.d.ts",
+      ],
       thresholds: {
         lines: 100,
         branches: 100,

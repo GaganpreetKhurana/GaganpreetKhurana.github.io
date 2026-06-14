@@ -1,7 +1,7 @@
 import { describe, expect, it, beforeEach, afterEach, vi } from "vitest";
 import { render, screen, within, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import App from "./App";
+import App from "../App";
 import {
   profile,
   projects,
@@ -9,8 +9,8 @@ import {
   experience,
   skills,
   certifications,
-} from "./data";
-import { mockIntersectionObserver, mockMatchMedia } from "./test/helpers";
+} from "../data";
+import { mockIntersectionObserver, mockMatchMedia } from "../test/helpers";
 
 beforeEach(() => {
   localStorage.clear();
@@ -312,6 +312,6 @@ describe("App active-section nav", () => {
     );
     const nav = screen.getByRole("navigation", { name: "Section navigation" });
     const active = within(nav).getByRole("link", { name: "Projects" });
-    expect(active).toHaveAttribute("aria-current", "true");
+    expect(active).toHaveAttribute("aria-current", "page");
   });
 });

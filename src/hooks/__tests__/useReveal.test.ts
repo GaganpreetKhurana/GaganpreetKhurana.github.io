@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { createElement } from "react";
 import { act, render, renderHook } from "@testing-library/react";
-import { useReveal } from "./useReveal";
+import { useReveal } from "../useReveal";
 import {
   mockIntersectionObserver,
   mockMatchMedia,
   removeIntersectionObserver,
-} from "./test/helpers";
+} from "../../test/helpers";
 
 const REDUCED = "(prefers-reduced-motion: reduce)";
 

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { renderHook, waitFor } from "@testing-library/react";
-import { useTypewriter } from "./useTypewriter";
-import { mockMatchMedia } from "./test/helpers";
+import { useTypewriter } from "../useTypewriter";
+import { mockMatchMedia } from "../../test/helpers";
 
 const REDUCED = "(prefers-reduced-motion: reduce)";
 

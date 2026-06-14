@@ -7,3 +7,8 @@ dist-ssr
 npm-debug.log*
 *.tsbuildinfo
 coverage
+
+# IDE
+.idea
+.vscode
+*.iml
